@@ -1,0 +1,9 @@
+.align-self-center {
+    margin: auto;
+}
+#successContainer {
+    color: green;
+}
+#errorContainer {
+    color: red;
+}

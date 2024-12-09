@@ -1,0 +1,19 @@
+<div class="w-25 align-self-center">
+    <form id="form" action="/login" method="post">
+        <div class="form-outline mb-4">
+            <label class="form-label" for="email">Email address</label>
+            <input name="email" type="text" id="email" class="form-control" value="{{email}}" />
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="password">Password</label>
+            <input name="password" type="password" id="password" class="form-control" value="{{password}}" />
+        </div>
+
+        <button id="submit" type="submit" class="btn btn-primary btn-block mb-4">login</button>
+        <a class="btn btn-info btn-block mb-4" href="/register">register</a>
+    </form>
+
+    <div id="errorContainer">{{errorMessage}}</div>
+    <div id="successContainer">{{successMessage}}</div>
+</div>
