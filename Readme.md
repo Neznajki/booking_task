@@ -7,6 +7,8 @@
  * create // cleanup and push to git 30m
  * added record submitting engine 1h
  * added validation error handling and messages 1h
+ * added hotel deletion entity injection 1h
+ * started to implement hotel room 1h
 
 ## JAVA setup guilde (LINUX // ubuntu) (Required only for IDEA)
  * ```cd ~/Downloads```
