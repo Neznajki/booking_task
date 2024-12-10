@@ -15,11 +15,6 @@ abstract public class AbstractErrorForm implements ErrorContainerForm {
         this.additionalItems.add(contentReplacerItem);
     }
 
-    @Override
-    public List<ContentReplacerItem> getAdditionalItems() {
-        return additionalItems;
-    }
-
     protected void addAdditionalItems(ContentReplacerItemCollection replacerItems) {
         for (ContentReplacerItem replacerItem: additionalItems) {
             replacerItems.addContentReplacerItem(replacerItem);

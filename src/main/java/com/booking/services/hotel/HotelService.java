@@ -3,8 +3,9 @@ package com.booking.services.hotel;
 import com.booking.db.entity.AppUser;
 import com.booking.db.entity.Hotel;
 import com.booking.db.repository.HotelRepository;
+import com.booking.dto.SuccessResponseDTO;
+import com.booking.exception.JsonErrorException;
 import com.booking.services.SessionMessageService;
-import com.booking.services.html.HtmlRenderService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,18 +23,17 @@ public class HotelService {
         return hotelListGeneratorService.getListContent(hotelRepository.findByUser(user));
     }
 
-    public void addHotel(
+    public SuccessResponseDTO addHotel(
         HttpServletRequest req,
         AppUser user,
         String name,
         String address,
         Integer floors
-    ) {
+    ) throws JsonErrorException {
         Optional<Hotel> duplicate = hotelRepository.findByName(name);
 
         if (duplicate.isPresent()) {
-            sessionMessageService.rememberMessage(req.getSession(), HtmlRenderService.ERROR_MESSAGE_INDEX, "Duplicate Hotel");
-            return;
+            throw new JsonErrorException(String.format("Hotel with name %s already exists", name));
         }
 
         Hotel hotel = new Hotel(
@@ -44,6 +44,6 @@ public class HotelService {
         );
 
         hotelRepository.save(hotel);
-        sessionMessageService.rememberMessage(req.getSession(), HtmlRenderService.SUCCESS_MESSAGE_INDEX, String.format("Hotel %s Added", name));
+        return new SuccessResponseDTO(String.format("Hotel %s Added", name));
     }
 }

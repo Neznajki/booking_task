@@ -2,6 +2,8 @@ package com.booking.controller;
 
 import com.booking.db.entity.AppUser;
 import com.booking.dto.HotelDTO;
+import com.booking.dto.SuccessResponseDTO;
+import com.booking.exception.JsonErrorException;
 import com.booking.form.AddHotelForm;
 import com.booking.form.ListHotelForm;
 import com.booking.services.SessionMessageService;
@@ -9,6 +11,7 @@ import com.booking.services.hotel.HotelService;
 import com.booking.services.html.HtmlRenderService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -38,14 +41,12 @@ public class HotelController {
         return this.htmlRenderService.createResponse(new AddHotelForm(userDetails, new HotelDTO()), req);
     }
 
-    @PostMapping("/add")
-    public String addBooking(
+    @PostMapping(value = "/add", produces = MediaType.APPLICATION_JSON_VALUE)
+    public SuccessResponseDTO addBooking(
             @AuthenticationPrincipal AppUser userDetails,
             HttpServletRequest req,
             @Validated HotelDTO hotelDTO
-    ) {
-        this.hotelService.addHotel(req, userDetails, hotelDTO.getName(), hotelDTO.getAddress(), hotelDTO.getFloors());
-
-        return this.htmlRenderService.createResponse(new AddHotelForm(userDetails, hotelDTO), req);
+    ) throws JsonErrorException {
+        return this.hotelService.addHotel(req, userDetails, hotelDTO.getName(), hotelDTO.getAddress(), hotelDTO.getFloors());
     }
 }

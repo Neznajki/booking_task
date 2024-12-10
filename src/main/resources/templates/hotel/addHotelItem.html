@@ -1,9 +1,12 @@
 <div class="hotel-preview-item">
     <a href="/private/hotel/list" class="btn btn-dark">BACK</a><br/>
-    <form action method="post">
+    <form action method="post" class="saveForm">
         <label for="name">Name</label><input id="name" name="name" value="{{hotel_name}}" />
         <label for="address">Address</label><input id="address" name="address" value="{{address}}" />
         <label for="floors">Floors</label><input id="floors" name="floors" value="{{floors}}" />
         <button id="submit" type="submit" name="submit" class="btn btn-primary btn-block mb-4">Submit Hotel</button>
     </form>
+
+    <div id="errorContainer">{{errorMessage}}</div>
+    <div id="successContainer">{{successMessage}}</div>
 </div>
