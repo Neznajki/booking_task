@@ -14,7 +14,11 @@ var SaveRequest = function () {
             data: form.serialize(), // serializes the form's elements.
             success: function(data)
             {
-                successContainer.text(data.responseJSON.successMessage);
+                if (data.successMessage) {
+                    successContainer.text(data.successMessage);
+                } else {
+                    successContainer.text(data.responseJSON.successMessage);
+                }
             },
             error: function (data) {
                 if (data.responseJSON && data.responseJSON.errorMessage) {

@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface HotelRepository extends RefreshableRepository<Hotel, Long> {
+public interface HotelRepository extends RefreshableRepository<Hotel, Integer> {
     List<Hotel> findByUser(AppUser appUser);
     Optional<Hotel> findByName(String name);
 }

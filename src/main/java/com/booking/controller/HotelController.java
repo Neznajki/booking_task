@@ -7,7 +7,7 @@ import com.booking.dto.SuccessResponseDTO;
 import com.booking.exception.JsonErrorException;
 import com.booking.form.AddHotelForm;
 import com.booking.form.ListHotelForm;
-import com.booking.services.SessionMessageService;
+import com.booking.services.UserService;
 import com.booking.services.hotel.HotelService;
 import com.booking.services.html.HtmlRenderService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,14 +24,13 @@ import org.springframework.web.servlet.view.RedirectView;
 public class HotelController {
     private final HtmlRenderService htmlRenderService;
     private final HotelService hotelService;
-    private final SessionMessageService sessionMessageService;
+    private final UserService userService;
 
     @GetMapping("/list")
     public String list(@AuthenticationPrincipal AppUser userDetails, HttpServletRequest req) {
         return this.htmlRenderService.createResponse(
                 new ListHotelForm(
                     userDetails,
-                    sessionMessageService.getMessageForDisplay(req.getSession(), HtmlRenderService.SUCCESS_MESSAGE_INDEX),
                     hotelService.getListContent(userDetails)
                 ),
                 req
@@ -56,7 +55,8 @@ public class HotelController {
             @AuthenticationPrincipal AppUser userDetails,
             Hotel hotel,
             HttpServletRequest req
-    ) {
+    ) throws JsonErrorException {
+        userService.checkDeletePermissions(userDetails, hotel);
         return this.hotelService.deleteHotel(req, hotel);
     }
 }

@@ -1,11 +1,12 @@
 package com.booking.db.entity;
 
+import com.booking.contract.UserDetailsEntityInterface;
 import jakarta.persistence.*;
 import lombok.Getter;
 
 @Entity
 @Getter
-public class Hotel {
+public class Hotel implements UserDetailsEntityInterface {
     public Hotel() {
     }
 

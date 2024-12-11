@@ -1,6 +1,9 @@
 .align-self-center {
     margin: auto;
 }
+.delete-button {
+    display: inline-block;
+}
 #successContainer {
     color: green;
 }

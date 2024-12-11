@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-public interface IpRepository extends CrudRepository<Ip, Long> {
+public interface IpRepository extends CrudRepository<Ip, Integer> {
     Optional<Ip> findByIpAddress(String ipAddress);
 }

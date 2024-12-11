@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface AppUserRepository extends RefreshableRepository<AppUser, Long> {
+public interface AppUserRepository extends RefreshableRepository<AppUser, Integer> {
     Optional<AppUser> findByEmail(String email);
 }

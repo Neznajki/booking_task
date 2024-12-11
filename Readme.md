@@ -9,6 +9,7 @@
  * added validation error handling and messages 1h
  * added hotel deletion entity injection 1h
  * started to implement hotel room 1h
+ * created Room part 2h
 
 ## JAVA setup guilde (LINUX // ubuntu) (Required only for IDEA)
  * ```cd ~/Downloads```

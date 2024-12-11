@@ -4,8 +4,8 @@
     <label for="floors_{{id}}">Floors</label><input id="floors_{{id}}" value="{{floors}}" disabled/>
     <label for="address_{{id}}">Address</label><input id="address_{{id}}" value="{{address}}" disabled/>
     <label for="owner_{{id}}">Owner</label><input id="owner_{{id}}" value="{{owner}}" disabled/>
-    <a href="/private/hotel/room/{{id}}/list/">List Rooms</a>
-    <form action="/private/hotel/delete/{{id}}" method="post">
-        <button type="submit" name="delete" value="delete" class="btn-link">Delete Hotel If Possible</button>
+    <a href="/private/hotel/room/{{id}}/list">List Rooms</a>
+    <form action="/private/hotel/delete/{{id}}" class="delete-button" method="post">
+        <button type="submit" name="delete" value="delete" class="btn-link delete-button">Delete Hotel If Possible</button>
     </form>
 </div>

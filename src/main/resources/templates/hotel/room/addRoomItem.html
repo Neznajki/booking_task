@@ -1,0 +1,12 @@
+<div class="hotel-preview-item">
+    <a href="/private/hotel/room/{{hotelId}}/list" class="btn btn-dark">BACK</a><br/>
+    <form action method="post" class="saveForm">
+        <label for="name">Name</label><input id="name" name="name" value="{{roomName}}" />
+        <label for="maxPersons">Max Persons</label><input id="maxPersons" name="maxPersons" type="number" value="{{maxPersons}}" />
+        <label for="floor">floor</label><input id="floor" name="floor" type="number" value="{{floor}}" />
+        <button id="submit" type="submit" name="submit" class="btn btn-primary btn-block mb-4">Submit Room</button>
+    </form>
+
+    <div id="errorContainer">{{errorMessage}}</div>
+    <div id="successContainer">{{successMessage}}</div>
+</div>

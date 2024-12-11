@@ -1,14 +1,17 @@
 package com.booking.services;
 
+import com.booking.contract.UserDetailsEntityInterface;
 import com.booking.db.entity.AppUser;
 import com.booking.db.repository.AppUserRepository;
 import com.booking.exception.DuplicateUserException;
+import com.booking.exception.JsonErrorException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -16,6 +19,16 @@ import java.util.Optional;
 public class UserService implements UserDetailsService {
     private final static String USER_NOT_FOUND_MSG = "User with email %s not found";
     private final AppUserRepository appUserRepository;
+
+    public void checkDeletePermissions(AppUser currentUser, UserDetailsEntityInterface userDetailsEntity) throws JsonErrorException {
+        if (userDetailsEntity.getUser() == null) {
+            return;
+        }
+
+        if (currentUser == null || !Objects.equals(currentUser.getId(), userDetailsEntity.getUser().getId())) {
+            throw new JsonErrorException("can not delete other users records");
+        }
+    }
 
     @Override
     public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException {
