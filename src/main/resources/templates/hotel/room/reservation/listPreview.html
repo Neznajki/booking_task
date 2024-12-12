@@ -1,0 +1,12 @@
+<a href="/private/hotel/list" class="btn btn-dark">BACK</a><br/>
+<a href="/private/hotel/room/add/{{hotelId}}" class="btn btn-success">Add Room</a>
+
+<form action="/private/booking/search" method="get">
+    <input type="date" class="date-picker" dateFormat="yyyy-MM-dd" name="arrivalDate" value="{{arrivalDate}}" required/>
+    <input type="date" class="date-picker" dateFormat="yyyy-MM-dd" name="leavingDate" value="{{leavingDate}}" required/>
+    <input type="number" name="persons" value="{{persons}}" required/>
+
+    <button type="submit" name="search">Search for spots</button>
+</form>
+
+{{listData}}

@@ -1,19 +1,19 @@
 package com.booking.helper;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import org.apache.commons.lang3.time.FastDateFormat;
+
 import java.util.Date;
 
 public class DateTimeHelper {
+    public static final String DATE_FORMAT = "yyyy-MM-dd";
+    private static final FastDateFormat fdf = FastDateFormat.getInstance(DATE_FORMAT);
+
+
     public static String formatDate(Date date) {
-        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        if (date == null) {
+            return "";
+        }
 
-        return formatter.format(date);
-    }
-
-    public static String formatDateTime(Date date) {
-        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-        return formatter.format(date);
+        return fdf.format(date);
     }
 }

@@ -30,7 +30,7 @@ public class ListHotelForm implements HtmlPageInterface {
 
         replacerItems.addContentReplacerItem(new ContentReplacerItem("email", appUser.getEmail()));
         replacerItems.addContentReplacerItem(new ContentReplacerItem("name", appUser.getName()));
-        replacerItems.addContentReplacerItem(new ContentReplacerItem("listData", listData));
+        replacerItems.addContentReplacerItem(new ContentReplacerItem("listData", listData == null || listData.isEmpty() ? "No hotels please add one" : listData));
 
         return replacerItems;
     }

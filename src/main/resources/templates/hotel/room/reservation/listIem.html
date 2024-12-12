@@ -1,0 +1,13 @@
+<div class="hotel-preview-item">
+    <label for="id_{{id}}">Id </label><input id="id_{{id}}" value="{{id}}" disabled />
+    <label for="name_{{id}}">Name</label><input id="name_{{id}}" value="{{name}}" disabled />
+    <label for="floor_{{id}}">Floors</label><input id="floor_{{id}}" type="number" value="{{floor}}" disabled/>
+    <label for="maxPersons_{{id}}">maxPersons</label><input id="maxPersons_{{id}}" type="number" value="{{maxPersons}}" disabled/>
+    <form action="/private/booking/book/date" class="delete-button" method="post">
+        <input id="id" value="{{id}}" name="room" hidden="hidden" />
+        <input type="number" name="persons" value="{{persons}}" hidden="hidden"/>
+        <input type="date" class="date-picker" dateFormat="yyyy-MM-dd" name="arrivalDate" value="{{arrivalDate}}" hidden="hidden"/>
+        <input type="date" class="date-picker" dateFormat="yyyy-MM-dd" name="leavingDate" value="{{leavingDate}}" hidden="hidden"/>
+        <button type="submit" name="book" value="delete" class="btn-link delete-button">Book Me PLEASE</button>
+    </form>
+</div>

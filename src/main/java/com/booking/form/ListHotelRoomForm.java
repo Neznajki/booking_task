@@ -36,7 +36,7 @@ public class ListHotelRoomForm implements HtmlPageInterface {
         replacerItems.addContentReplacerItem(new ContentReplacerItem("hotelName", hotel.getName()));
         replacerItems.addContentReplacerItem(new ContentReplacerItem("hotelAddress", hotel.getAddress()));
         replacerItems.addContentReplacerItem(new ContentReplacerItem("hotelId", hotel.getId().toString()));
-        replacerItems.addContentReplacerItem(new ContentReplacerItem("listData", listData));
+        replacerItems.addContentReplacerItem(new ContentReplacerItem("listData", listData == null || listData.isEmpty() ? "No rooms in hotel please add some" : listData));
 
         return replacerItems;
     }
