@@ -11,6 +11,7 @@
  * started to implement hotel room 1h
  * created Room part 2h
  * added reservation logic 3h
+ * tested fixed findings added basic tests. 1.5h
 
 ## JAVA setup guilde (LINUX // ubuntu) (Required only for IDEA)
  * ```cd ~/Downloads```
