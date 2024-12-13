@@ -20,7 +20,7 @@
  * ```sudo update-java-alternatives --set /usr/lib/jvm/jdk-23.0.1-oracle-x64```
 
 ## INSTALLATION
- * ```docker-compose up -d``` - from sources root
+ * ```docker compose up -d``` - from sources root
  * without docker feel free to ask directly https://www.linkedin.com/in/ml-698627181/ (neznajki@gmail.com)
 
 ## HOW TO

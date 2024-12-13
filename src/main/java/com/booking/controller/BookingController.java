@@ -31,7 +31,7 @@ public class BookingController {
     @GetMapping("")
     public String listBooking(@AuthenticationPrincipal AppUser userDetails, HttpServletRequest req) {
         return this.htmlRenderService.createResponse(
-                new BookingSelectionForm(userDetails, null, null),
+                new BookingSelectionForm(userDetails, new DateSelectionDTO(), null),
                 req
         );
     }

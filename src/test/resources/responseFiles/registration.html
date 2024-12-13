@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login page</title>
+
+    <script src="/js/jquery-3.6.1.min.js"></script>
+    <script src="/js/lib/saveRequest.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+    <div id="htmlContent">
+        <div class="w-25 align-self-center">
+    <form id="form" action="/register" method="post">
+        <div class="form-outline mb-4">
+            <label class="form-label" for="email">Email address</label>
+            <input name="email" type="text" id="email" class="form-control" value="" />
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="email">Name</label>
+            <input name="name" type="text" id="name" class="form-control" value="" />
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="password">Password</label>
+            <input name="password" type="password" id="password" class="form-control" value="" />
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="passwordRepeat">Password Repeat</label>
+            <input name="passwordRepeat" type="password" id="passwordRepeat" class="form-control" value="" />
+        </div>
+
+        <button id="submit" type="submit" class="btn btn-primary btn-block mb-4">Submit register</button>
+        <a class="btn btn-dark btn-block mb-4" href="/login">Back</a>
+        <div hidden="hidden">
+    token
+</div>
+    </form>
+
+    <div id="errorContainer"></div>
+    <div id="successContainer"></div>
+</div>
+    </div>
+</body>
+</html>
